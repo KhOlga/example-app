@@ -23,3 +23,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::group(['prefix' => 'payments', 'as' => 'payments.'], function () {
+	Route::get('/', [PaymentController::class, 'index'])->name('index');
+	Route::post('/send-payment', [PaymentController::class, 'sendPayment'])->name('send_payment');
+});
