@@ -18,7 +18,10 @@ class SubscriptionController extends Controller
 
 	public function subscriptionStore(Request $request)
 	{
-		dd($request->all());
+		$request->user()->newSubscription(
+			'default', 'price_monthly'
+		)->create($request->paymentMethodId);
+		//dd($request->all());
 	}
 
 	public function subscriptionShow()
