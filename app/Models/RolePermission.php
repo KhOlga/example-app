@@ -14,7 +14,7 @@ class RolePermission extends Pivot
 	 *
 	 * @var string
 	 */
-	protected $table = 'roles_permissions';
+	protected $table = 'role_permission';
 
 	/**
 	 * Indicates if the model should be timestamped.

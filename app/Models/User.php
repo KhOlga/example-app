@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasRole;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,6 +23,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 	use SoftDeletes;
+	use HasRole;
 
     /**
      * The attributes that are mass assignable.
@@ -68,5 +70,14 @@ class User extends Authenticatable
 	public function roles(): BelongsToMany
 	{
 		return $this->belongsToMany(Role::class);
+	}
+
+	/**
+	 * @param string $email
+	 * @return mixed
+	 */
+	public static function findByEmail(string $email)
+	{
+		return self::where('email', $email)->first();
 	}
 }
