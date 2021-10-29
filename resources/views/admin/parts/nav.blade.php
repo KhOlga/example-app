@@ -13,7 +13,7 @@
 					<a class="nav-link active" aria-current="page" href="{{ route('admin.dashboard') }}">Dashboard</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">{{ __('Users Management') }}</a>
+					<a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Users Management') }}</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">{{ __('Teams Management') }}</a>

@@ -19,6 +19,7 @@ class UserResource extends JsonResource
 		foreach ($this->roles as $role) {
 			$roles[] = $role->name;
 		}
+		//$team = $this->currentTeam->name;
 
 		return [
 			'id' => $this->id,
@@ -28,7 +29,9 @@ class UserResource extends JsonResource
 			'email' => $this->email,
 			'roles' => $roles,
 			'team' => Team::where('id', $this->current_team_id)->first()->name,
+			//'team' => $team,
 			'team_membership' => Membership::where('user_id', $this->id)->first()->role,
+			//'team_membership' => $this->teamRole($team),
 		];
     }
 }

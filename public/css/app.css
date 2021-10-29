@@ -1215,17 +1215,20 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
 .mb-0 {
 	margin-bottom: 0px;
-}
-.mr-auto {
-	margin-right: auto;
 }
 .ml-auto {
 	margin-left: auto;
 }
-.mb-5 {
-	margin-bottom: 1.25rem;
+.mr-auto {
+	margin-right: auto;
+}
+.-mt-7 {
+	margin-top: -1.75rem;
 }
 .block {
 	display: block;
@@ -1235,6 +1238,9 @@ select {
 }
 .inline-flex {
 	display: inline-flex;
+}
+.table {
+	display: table;
 }
 .grid {
 	display: grid;
@@ -1410,9 +1416,6 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
-.gap-2 {
-	gap: 0.5rem;
-}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1587,6 +1590,9 @@ select {
 .p-6 {
 	padding: 1.5rem;
 }
+.p-3 {
+	padding: 0.75rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1678,6 +1684,12 @@ select {
 }
 .pt-0 {
 	padding-top: 0px;
+}
+.pb-8 {
+	padding-bottom: 2rem;
+}
+.pb-0 {
+	padding-bottom: 0px;
 }
 .text-left {
 	text-align: left;
