@@ -41,12 +41,3 @@
 		</div>
 	</div>
 @endsection
-
-@push('styles')
-	<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
-@endpush
-
-@push('scripts')
-	<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
-@endpush
-

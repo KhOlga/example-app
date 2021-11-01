@@ -3,8 +3,8 @@
 
 @section('content')
 	<div class="container">
-		<div class="row justify-content-center">
-			<h1>Hi, super_admin@example-app.com (:</h1>
+		<div class="row justify-content-center text-info">
+			<h1>Hi, {{ Auth::user()->email }} (:</h1>
 		</div>
 	</div>
 @endsection

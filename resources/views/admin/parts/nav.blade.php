@@ -26,7 +26,7 @@
 						{{ __('Settings') }}
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-						<li><a class="dropdown-item" href="#">Roles</a></li>
+						<li><a class="dropdown-item" href="{{ route('admin.roles.index') }}">Roles</a></li>
 						<li><a class="dropdown-item" href="#">Permissions</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#">Something else here</a></li>

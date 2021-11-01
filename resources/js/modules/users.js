@@ -1,6 +1,6 @@
 export default class Users {
 	constructor() {
-		Users.baseUrl =  window.baseUrl + '/admin/users';
+		Users.baseUrl = window.baseUrl + '/admin/users';
 		Users.selectors = {
 			table: '#users-table',
 		}

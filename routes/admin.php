@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('show-login-form');
-Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('show-login-form');
+Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate')
+	->middleware('guest'); // TODO: resolve login issue
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth']);
 
 Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
 	Route::get('/', [UserController::class, 'index'])->name('index');

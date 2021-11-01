@@ -5,28 +5,38 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
-use DataTables;
-
 
 class RoleController extends Controller
 {
-	/**
-	 * Show the application dashboard.
-	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
-	 */
-	public function data(Request $request)
+	public function index()
 	{
-		if ($request->ajax()) {
-			$data = Role::latest()->get();
-			return Datatables::of($data)
-				->addIndexColumn()
-				->addColumn('action', function($row){
-					$actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-					return $actionBtn;
-				})
-				->rawColumns(['action'])
-				->make(true);
-		}
+		$columns = [
+			'ID',
+			'Name',
+			'Slug',
+		];
+
+		return view('admin.layouts.table', [
+			'table' => [
+				'id' => 'roles',
+				'columns' => $columns,
+				'title' => 'Roles info',
+			]
+		]);
+	}
+
+	/**
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\JsonResponse|mixed
+	 * @throws \Exception
+	 */
+	public function data()
+	{
+		$data = Role::selectRaw("roles.*");
+
+		return datatables($data)
+			->orderColumns(['name', 'slug'], '-:column $1')
+			->make();
 	}
 }
